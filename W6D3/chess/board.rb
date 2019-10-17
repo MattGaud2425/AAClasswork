@@ -64,9 +64,13 @@ class Board
     end
 
     def move_piece!(start_pos, end_pos)
+        piece = self[start_pos]
         raise "no piece at start_pos" if self[start_pos].color == :NullPiece
         raise "Piece already placed there!" unless self[end_pos].color == :NullPiece
-        self[start_pos].color, self[end_pos].color = self[end_pos].color, self[start_pos].color
+        
+        self[end_pos] = piece
+        piece.pos = end_pos
+        self[star_pos] = NullPiece.new()
         
     end
 end

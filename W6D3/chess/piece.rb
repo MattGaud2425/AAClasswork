@@ -6,3 +6,7 @@ class Piece
         @pos = pos
     end
 end
+
+class NullPiece < Piece
+    
+end
